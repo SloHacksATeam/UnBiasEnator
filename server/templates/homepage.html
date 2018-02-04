@@ -1,0 +1,106 @@
+<html>
+<title>Neutralizr </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<style> 
+input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 25%;
+}
+</style>
+<center>
+<head>
+  {% assets "images" %}
+      <link href="/static/css/landing-page.min.css" rel="stylesheet">
+  {% endassets %}
+  <meta charset="utf-8">
+  <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <h1>Neutralizr</h1>
+  <p>This Python Flask application suggests more neutral search queries.</p>
+  <!-- Custom fonts for this template -->
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/static/vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    
+</head>
+<br>
+
+  <body>
+    
+    <form action="run_language" method="POST" enctype="multipart/form-data">
+      <input type="text" name="text" placeholder="Search..."><br>
+    </form>
+
+    {% if output %}
+      <h2>Inputted Text:</h2>
+      <p>{{text}}</p>
+      <h3>Sentiment analysis:</h3>
+      <p>Score: {{output.origEmotion}} </p>
+      <p>Magnitude: {{output.origMagnitude}} </p>
+      <br>
+      <h2>New Query:</h2>
+      <p> {{output.suggested}} </p>
+      <h3> New sentiment analysis:</h3>
+      <p>Score: {{output.newEmotion}} </p>
+      <p>Magnitude: {{output.newMagnitude}} </p>
+      <br>
+    {% endif %}
+    </center>
+    <section class="testimonials text-center bg-light">
+      <div class="container">
+        <h2 class="mb-5">The Developers</h2>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="/static/img/bryce_slohacks.jpg" alt="">
+              <h5>Bryce Vonilten</h5>
+              <p class="font-weight-light mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="/static/img/sun_slohacks.jpg" alt="">
+              <h5>Steven Sun</h5>
+              <p class="font-weight-light mb-0"></p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+              <img class="img-fluid rounded-circle mb-3" src="/static/img/spencer_slohacks.jpg" alt="">
+              <h5>Spencer Gilson</h5>
+              <p class="font-weight-light mb-0"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <center>
+      <p>Powered by Google's Cloud Natural Language API.</p>
+    </center>
+
+     <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+
+    
+</html> 
