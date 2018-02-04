@@ -2,13 +2,14 @@ from flask import Flask, redirect, render_template, request
 from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
-from .util import assets
 from PyDictionary import PyDictionary
-
 app = Flask(__name__)
 
 
+
 @app.route('/')
+
+
 def homepage():
     # Return a Jinja2 HTML template and pass in image_entities as a parameter.
     return render_template('homepage.html')
@@ -116,3 +117,5 @@ if __name__ == '__main__':
     # This is used when running locally. Gunicorn is used to run the
     # application on Google App Engine. See entrypoint in app.yaml.
     app.run(host='127.0.0.1', port=8080, debug=True)
+
+
